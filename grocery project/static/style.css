@@ -1,0 +1,154 @@
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* General body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 30px;
+    color: #ffffff;
+
+    /* Gradient background */
+    background: linear-gradient(135deg, #0f172a, #1e293b, #2563eb);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+
+    min-height: 100vh;
+}
+
+/* Animated background */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Main heading */
+h1 {
+    text-align: center;
+    font-size: 52px;
+    margin-bottom: 40px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+}
+
+/* Section headers */
+h2 {
+    margin-top: 45px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: 28px;
+    border-left: 6px solid #38bdf8;
+    padding-left: 12px;
+}
+
+/* Buttons container spacing */
+a {
+    text-decoration: none;
+}
+
+/* Button styling */
+a button {
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    border: none;
+    color: white;
+    padding: 14px 24px;
+    margin: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Hover effect */
+a button:hover {
+    transform: translateY(-4px) scale(1.03);
+    background: linear-gradient(135deg, #0ea5e9, #1d4ed8);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Table headers and cells */
+th, td {
+    padding: 15px 18px;
+    text-align: left;
+}
+
+/* Table heading */
+th {
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+
+/* Table rows */
+td {
+    color: #f8fafc;
+}
+
+/* Alternate row coloring */
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background: rgba(56, 189, 248, 0.2);
+    transition: 0.3s ease;
+}
+
+/* Card-like section spacing */
+section {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #38bdf8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}

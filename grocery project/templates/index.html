@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Store Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Grocery Store Management System</h1>
+
+    <!-- Buttons that link to Flask routes -->
+    <a href="/products"><button type="button">View All Products</button></a>
+    <a href="/low-stock"><button type="button">View Low Stock Products</button></a>
+    <a href="/near-expiry"><button type="button">View Near Expiry Products</button></a>
+    <a href="/expired-products"><button type="button">Expired Products</button></a>
+    <a href="/stock-summary"><button type="button">Category Stock</button></a>
+    <a href="/supply-summary"><button type="button">Supply Summary</button></a>
+
+    <a href="/out-of-stock"><button type="button">Out Of Stock</button></a>
+    <a href="/add-product"><button type="button">Add New Product</button></a>
+
+    <!-- Show data if passed -->
+    {% if products %}
+    <h2>All Products</h2>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+            <td>
+                <a href="/update-product/{{ product[0] }}"><button>Update</button></a>
+                <a href="/delete-product/{{ product[0] }}"><button onclick="return confirm('Are you sure?')">Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if supply_data %}
+    <h2>Supply Summary by Supplier</h2>
+    <table>
+        <tr>
+            <th>Supplier ID</th>
+            <th>Supplier Name</th>
+            <th>Contact Info</th>
+            <th>Total Quantity Supplied</th>
+        </tr>
+        {% for row in supply_data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
+
+    {% if low_stock_products %}
+    <h2>Low Stock Products</h2>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for product in low_stock_products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+
+    {% if stock_summary %}
+<h2>Stock Summary by Category</h2>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Number of Products</th>
+        <th>Total Stock Quantity</th>
+    </tr>
+    {% for row in stock_summary %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+
+    
+    {% if out_of_stock %}
+    <h2>Out Of Stock</h2>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for product in out_of_stock %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% endif %}
+
+    {% if near_expiry_products %}
+    <h2>Near Expiry Products</h2>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for product in near_expiry_products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    {% if expired_products %}
+    <h2>Expired Products</h2>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for product in expired_products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
